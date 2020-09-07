@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Dokument edixistatus=""><MetaMeeting><ParliamentarySession>20141</ParliamentarySession><ParliamentaryGroup>Folketinget</ParliamentaryGroup><MeetingNumber>10</MeetingNumber><DateOfSitting>2014-10-31T10:00:00</DateOfSitting><Location>Folketingssalen</Location><EdixiDocLocation>W:\20141\M010\</EdixiDocLocation><AudioFileFolder>X:\Arbor\FT2014\010\SALEN\</AudioFileFolder></MetaMeeting><TitelGruppe><Titel><Linea><Char>10. møde</Char></Linea></Titel><UnderTitel><Linea><Char>Fredag den 31. oktober 2014 kl. 10.00</Char></Linea></UnderTitel></TitelGruppe><DagsordenPlan><Rubrica>
+  <Linea>
+    <Char>Dagsorden</Char>
+  </Linea>
+</Rubrica>
+<PunktTekst>
+  <Exitus>
+    <Linea>
+      <Char>1) 2. behandling af lovforslag nr. L 4:</Char>
+    </Linea>
+  </Exitus>
+  <Exitus>
+    <Linea>
+      <Char>Forslag til lov om ændring af lov om afgift af elektricitet, lov om afgift af stenkul, brunkul og koks m.v., personskatteloven og forskellige andre love. (Tilbagerulning af forsyningssikkerhedsafgiften, nedsættelse af elvarmeafgiften, forhøjelse af elafgiften, tilpasning af afgiftsregler for VE-brændsler, forhøjelse af bundskatten og det skrå skatteloft, nedsættelse af den grønne check og afgiftsforhøjelse på cigarillos m.v.).</Char>
+    </Linea>
+  </Exitus>
+  <Exitus>
+    <Linea>
+      <Char>Af skatteministeren (Benny Engelbrecht).</Char>
+    </Linea>
+  </Exitus>
+  <Exitus>
+    <Linea>
+      <Char>(Fremsættelse 08.10.2014. 1. behandling 10.10.2014. Betænkning 29.10.2014).</Char>
+    </Linea>
+  </Exitus>
+</PunktTekst></DagsordenPlan><DagsordenPunkt><MetaFTAgendaItem><ItemNo>0</ItemNo><FTCase /><FTCaseNumber /><FTCaseType>FM</FTCaseType><FTCaseStage /><ShortTitle>Punkt 0</ShortTitle></MetaFTAgendaItem><PunktTekst><Exitus><Linea><Char /></Linea></Exitus></PunktTekst><Aktivitet><Rubrica><Linea><Char>Meddelelser fra formanden</Char></Linea></Rubrica><Tale><Taler><MetaSpeakerMP><OratorFirstName>Mogens</OratorFirstName><OratorLastName>Lykketoft</OratorLastName><GroupNameShort>S</GroupNameShort><OratorRole>formand</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char>Formanden</Char><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2015-02-06T09:19:07</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2014-10-31T10:00:01</StartDateTime><EndDateTime>2014-10-31T10:01:00</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Mødet er åbnet.</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>I dag er der følgende anmeldelse:</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Karina Lorentzen Dehnhardt (SF) m.fl.:</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Beslutningsforslag nr.</Char></Linea><Linea><Char>B 17 (Forslag til folketingsbeslutning om en handleplan for en styrkelse af yderområderne).</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Pia Olsen Dyhr (SF) og Jonas Dahl (SF):</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Beslutningsforslag B nr.</Char></Linea><Linea><Char>18 (Forslag til folketingsbeslutning om udarbejdelse af en lighedsudredning).</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Titler på de anmeldte sager vil fremgå af www.folketingstidende.dk (jf.</Char></Linea><Linea><Char>ovenfor).</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Socialdemokratiets folketingsgruppe har meddelt mig, at den har udpeget medlem af Folketinget Pernille Rosenkrantz-Theil som stedfortræder for statsrevisor for den resterende del af indeværende funktionsperiode i stedet for medlem af Folketinget Henrik Dam Kristensen.</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet></DagsordenPunkt><DagsordenPunkt><MetaFTAgendaItem><ItemNo>1</ItemNo><FTCase /><FTCaseNumber>4</FTCaseNumber><FTCaseType>L</FTCaseType><FTCaseStage>BEH2</FTCaseStage><ShortTitle>2. behandling af L 4: Om tilbagerulning af forsyningssikkerhedsafgiften m.v.</ShortTitle></MetaFTAgendaItem><PunktTekst><PreTekst>
+  <Exitus>
+    <Linea>
+      <Char>Det eneste punkt på dagsordenen er:</Char>
+    </Linea>
+  </Exitus>
+</PreTekst>
+<Exitus>
+  <Linea>
+    <Char>1) 2. behandling af lovforslag nr. L 4:</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>Forslag til lov om ændring af lov om afgift af elektricitet, lov om afgift af stenkul, brunkul og koks m.v., personskatteloven og forskellige andre love. (Tilbagerulning af forsyningssikkerhedsafgiften, nedsættelse af elvarmeafgiften, forhøjelse af elafgiften, tilpasning af afgiftsregler for VE-brændsler, forhøjelse af bundskatten og det skrå skatteloft, nedsættelse af den grønne check og afgiftsforhøjelse på cigarillos m.v.).</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>Af skatteministeren (Benny Engelbrecht).</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>(Fremsættelse 08.10.2014. 1. behandling 10.10.2014. Betænkning 29.10.2014).</Char>
+  </Linea>
+</Exitus></PunktTekst><Aktivitet><Rubrica><Linea><Char>Forhandling</Char></Linea></Rubrica><Tale><Taler><MetaSpeakerMP><OratorFirstName>Mogens</OratorFirstName><OratorLastName>Lykketoft</OratorLastName><GroupNameShort>S</GroupNameShort><OratorRole>formand</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char>Formanden</Char><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2015-02-06T09:19:07</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2014-10-31T10:01:00</StartDateTime><EndDateTime>2014-10-31T10:01:12</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Ønsker nogen at udtale sig?</Char></Linea></Exitus><Exitus><Linea><Char>Det er ikke tilfældet, så er forhandlingen sluttet, og vi går til afstemning.</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet><Aktivitet><Rubrica><Linea><Char>Afstemning</Char></Linea></Rubrica><Tale><Taler><MetaSpeakerMP><OratorFirstName>Mogens</OratorFirstName><OratorLastName>Lykketoft</OratorLastName><GroupNameShort>S</GroupNameShort><OratorRole>formand</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char>Formanden</Char><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2015-02-06T09:19:08</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2014-10-31T10:01:12</StartDateTime><EndDateTime>2014-10-31T10:01:41</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Ønskes afstemning om ændringsforslagene nr.</Char></Linea><Linea><Char>1-19, tiltrådt af udvalget?</Char></Linea></Exitus><Exitus><Linea><Char>De er vedtaget.</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Jeg foreslår, at lovforslaget går direkte til tredje behandling uden fornyet udvalgsbehandling.</Char></Linea><Linea><Char>Hvis ingen gør indsigelse, betragter jeg det som vedtaget.</Char></Linea></Exitus><Exitus><Linea><Char>Det er vedtaget.</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet></DagsordenPunkt><DagsordenPunkt><MetaFTAgendaItem><ItemNo>0</ItemNo><FTCase /><FTCaseNumber /><FTCaseType>FM</FTCaseType><FTCaseStage /><ShortTitle>Punkt 0</ShortTitle></MetaFTAgendaItem><PunktTekst><Exitus><Linea><Char /></Linea></Exitus></PunktTekst><Aktivitet><Rubrica><Linea><Char>Meddelelser fra formanden</Char></Linea></Rubrica><Tale><Taler><MetaSpeakerMP><OratorFirstName>Mogens</OratorFirstName><OratorLastName>Lykketoft</OratorLastName><GroupNameShort>S</GroupNameShort><OratorRole>formand</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char>Formanden</Char><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2015-02-06T09:19:08</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2014-10-31T10:01:41</StartDateTime><EndDateTime>2014-10-31T10:01:47</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Så er der ikke mere at foretage i dette møde.</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Folketingets næste møde afholdes i dag, den 31.</Char></Linea><Linea><Char>oktober 2014, kl.</Char></Linea><Linea><Char>10.15.</Char></Linea></Exitus><Exitus><Linea><Char>Jeg henviser til den dagsorden, der fremgår af Folketingets hjemmeside.</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet><Aktivitet><Tale><Taler><MetaSpeakerMP><OratorFirstName>MødeSlut</OratorFirstName><OratorLastName>MødeSlut</OratorLastName><GroupNameShort>MødeSlut</GroupNameShort><OratorRole>MødeSlut</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char /><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2015-02-06T09:19:08</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2014-10-31T10:01:47</StartDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Mødet er hævet.</Char></Linea><Linea><Char>(Kl.</Char></Linea><Linea><Char>10:01).</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet></DagsordenPunkt></Dokument>

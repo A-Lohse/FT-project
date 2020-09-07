@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
+	<xsd:include schemaLocation="Folketing.LexDania_2.1.xsd"/>
+	<!-- "Dokument" -->
+	<xsd:element name="Dokument" type="Dokument_type" id="Dokument_2.1-Dokument"/>
+	<xsd:complexType name="Dokument_type" id="Dokument_type_2.1-Dokument">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="MetaMeeting"/>
+					<xsd:element ref="TitelGruppe" minOccurs="0"/>
+					<xsd:element ref="DagsordenPlan" minOccurs="0"/>
+					<xsd:element ref="DagsordenPunkt" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

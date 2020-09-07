@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="http://www.retsinformation.dk/offentlig/xml/schemas/2008/11/13/LexDania_2.1.xsd">
+	<xs:annotation>
+		<xs:documentation source="http://www.LexDania.DK/LexDania-General.doc">
+
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   |||       LexDania         |||
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	development committee: 	
+		Nina Koch, Retsinformation (Minstry of Justice)
+	       	Ole Lianee, CSC
+		Knud Erik Petersen, Folketinget (Danish Parliament)
+		Hugh Tucker, Documenta
+ 	
+ 	
+	Contents of this schema:
+	1. ADDRESS
+		- this section defines the addresses and identification elements and attributes.
+		
+	2. CONTENT
+		- this section contains the elements for text and graphic content. 
+ 
+	3. METADATA
+		- this section defines the metadata structure for defining terms and associating values.
+		
+	4. REFERENCE
+		- this section defines the allowable references (internal and external).
+		
+	5. STRUCTURE
+		- this section contains the basic structure components.  
+		
+	
+	NOTES on reading this schema:
+	
+	1. The data types are arranged alphabetically within their section. 
+	2. All of the declared elements are defined at the end of the schema. 
+	  - see the section DECLARATIONS
+	
+	To understand the basics it is recommented to read
+	the LexDania documents - these are referenced in the "Documentation" 
+
+	
+		</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation source="http://www.LexDania.DK/LexDania-General.doc">
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| LexDania - 1. Address  |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+	The Addressing module defines and declares a set of elements and attributes 
+	for addressing the LexDania content and containers.
+				
+				
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	|||                             |||
+	|||      Identification         |||
+	|||                             |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	
+	Attributes for identification 
+	
+		 - XML ID
+		 
+		</xs:documentation>
+	</xs:annotation>
+	<xs:attribute name="id" type="xs:ID" id="id.LexDania_2.1"/>
+	<xs:annotation>
+		<xs:documentation source="http://www.LexDania.DK/LexDania-General.doc">
+	
+	Elements for identification 
+	
+		- Explicatus - identification token used in perceptual sequencing and addressing (output), usually indicating some ordering.
+		
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="Explicatus" type="xs:string" id="Explicatus-LexDania_2.1"/>
+	<xs:annotation>
+		<xs:documentation source="http://www.LexDania.DK/LexDania-General.doc">
+	
+	
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   |||                             |||
+   |||    LexDania - 2. Content    |||
+   |||                             |||
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        
+   The Content section contains the set of LexDania syntactic datatypes 
+   for text and graphic content.
+
+	- Char_type (chardata)
+	    - is a non-empty sequence of characters (chardata)
+	    - there is no markup in Char_type elements, i.e., there is no mixed content in LexDania	
+	
+	- Linea_type (phrases, sentence fragments, sentences, lines of text, etc.)
+	    - is a non-empty sequence of Char_type elements.  
+	
+	- Exitus_Type (blocks of text, paragraphs, verses, etc.)
+	   - is a non-empty sequence of Linea_type, Index_type, and/or Mensa_type
+	
+	- Index_type (lists)
+	   - is a non-empty sequence of Alinea_type
+	
+	- Nota_type (notes) 
+	
+	- Tabula_type (tables) 
+	   - table are meant to be defined in applications
+				
+    	- Figura_type (image) 
+	   - to be defined in applications
+
+	- Indentatio_type (point, item, sequence of blocks of text)
+    
+	- Xtern_type
+																	
+	(Note that these definitions are arranged alphabetically within the section.)
+			
+    		</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>
+	     
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    	|||                     ||| 
+    	|||    Char type        |||
+    	|||                     |||
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		
+		Char_type - (from L. character - character)
+			- sequence of characters (chardata) 
+			- no markup with the exception of entities
+			- may have attributes
+			- entities permitted
+			
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Char_type" id="Char_type-LexDania_2.1">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="id"/>
+				<xs:attribute ref="REFid"/>
+				<xs:attribute ref="adjunctio"/>
+				<xs:attribute ref="formaChar"/>
+				<xs:attribute ref="signiChar"/>
+				<xs:anyAttribute/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+		
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	|||                     ||| 
+	||| 	Exitus Type     |||
+	|||                     |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	
+		Exitus_type 	
+			- a non-linear group of basic text containers
+			- contains any number of Linea, Index, Tabula, Figura and/or Nota
+		   
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Exitus_type" id="Exitus_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="Linea" maxOccurs="unbounded"/>
+					<xs:element ref="Index" maxOccurs="unbounded"/>
+					<xs:element ref="Tabula" maxOccurs="unbounded"/>
+					<xs:element ref="Figura" maxOccurs="unbounded"/>
+					<xs:element ref="Nota" maxOccurs="unbounded"/>
+				</xs:choice>
+				<xs:attribute ref="adjunctio"/>
+				<xs:attribute ref="formaEx"/>
+				<xs:attribute ref="formaForma"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    	|||                     |||
+    	|||     FIGURA Type     |||
+    	|||                     |||
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			
+		Figura Type
+			- Image graphics
+				
+	</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Figura_type" id="Figura_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+       |||                         ||| 
+       |||	Indentatio Type    |||
+       |||                         |||			
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+		Indentatio 
+			- a collection (sequence)  (min. 1) of points, items, records, made of Exitus_type(s)
+			- Indentatio_type is used within Index_type (list)
+				
+	    </xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Indentatio_type" id="Indentatio_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type">
+				<xs:sequence>
+					<xs:element ref="Exitus" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute ref="formaInd"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    	|||                     ||| 
+    	|||     Index Type     |||
+    	|||                     |||      
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	   	Index_type
+			- a Index contains a series of Indentatio, e.g., a list with a series of items 
+			- Index_type is the basis for all types of lists.
+			- must contain a minimum of 1 Indentatio
+		
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Index_type" id="Index_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type">
+				<xs:sequence>
+					<xs:element ref="Indentatio" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	|||                     ||| 
+	||| 	LINEA Type      |||
+	|||                     |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+		Linea_type - (from L. linea - a line [of characters], root of writing)
+			- sequence of (only) Char_type  
+
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Linea_type" id="Linea_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type">
+				<xs:sequence>
+					<xs:element ref="Char" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute ref="adjunctio"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+		
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    	|||                          ||| 
+    	|||     Nota Type            |||
+    	|||                          ||| 
+    	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+			
+		Nota - contians a collection of Exitus_types 
+			- this is the basis declaration for all types of notes (footnotes, body (corpus) notes, title notes, 
+			annotations, etc.
+	
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Nota_type" id="Nota_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type">
+				<xs:sequence>
+					<xs:element ref="Exitus" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute ref="formaNo"/>
+				<xs:anyAttribute/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	|||			||| 
+	||| 	Tabula Type	|||
+	|||			||| 
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+			
+		Tabula
+			- tables
+			- at present Tabula_type is a "place holder" and the definintions of tables 
+			is at the mercy of the application schema writer.
+				
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Tabula_type" id="Tabula_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	|||			|||
+	||| 	XTERN Type	|||
+	|||  	  		|||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+			
+		Xtern Type
+			- external type - anything allowed
+				
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Xtern_type" id="Xtern_type-LexDania_2.1">
+		<xs:sequence>
+			<xs:any namespace="##any" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute/>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	|||				|||
+	||| 	LexDania - 3. Meta  	|||
+	|||  				|||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			
+			Meta
+				- Metadata is moved to 		Meta.LexDania_2.1.xsd
+				
+		</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation source="http://www.LexDania.dk/Link.doc">
+		
+		
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	|||                                 |||
+	|||       LexDania - 4. Reference   |||
+	|||                                 |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		References, anchors and links:
+			- REFid (Reference)
+			- adjunctio (Link)
+
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:attribute name="REFid" type="xs:anyURI" id="REFid-LexDania_2.1"/>
+	<xs:attribute name="adjunctio" type="xs:anyURI" id="adjunctio-LexDania_2.1"/>
+	<xs:annotation>
+		<xs:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	|||					|||
+	||| 	LexDania - 5. Structure		|||
+	|||  					|||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+		Structure
+			- the Arca_type is the basis datatype for all containers.
+			- the Rubrica_type is a generel title component.	
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	|||				|||	
+	||| 	Arca - container	|||
+	|||				|||	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		
+		The container is a general structure component 
+		- it contains 
+			:: a Rubrica (a title component)
+			:: the identification element (Explicatus)
+			:: The private note (NotaPrivata)
+			:: the identification attribute (id) 
+			:: the reference attribute (REFid) 
+			:: the language attribute (lingua) 
+			
+		- all of these are optional
+		- Arca_type is used as the basis for all containing structures.
+		
+		
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Arca_type" id="Arca_type-LexDania_2.1">
+		<xs:sequence>
+			<xs:element ref="Explicatus" minOccurs="0"/>
+			<xs:element ref="NotaPrivata" minOccurs="0"/>
+			<xs:element ref="Rubrica" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute ref="id"/>
+		<xs:attribute ref="REFid"/>
+		<xs:attribute ref="lingua"/>
+		<xs:attribute name="edixistatus" type="xs:string"/>
+		<xs:anyAttribute/>
+	</xs:complexType>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:annotation>
+		<xs:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	|||				|||
+	||| 	Rubrica - title		|||
+	|||				|||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		
+		The Rubrica is a very general title component.
+
+		</xs:documentation>
+	</xs:annotation>
+	<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+	<xs:complexType name="Rubrica_type" id="Rubrica_type-LexDania_2.1">
+		<xs:complexContent>
+			<xs:extension base="Arca_type">
+				<xs:sequence>
+					<xs:element ref="Linea"/>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="Linea" minOccurs="0"/>
+						<xs:element ref="Nota" minOccurs="0"/>
+					</xs:choice>
+				</xs:sequence>
+				<xs:attribute ref="formaForma"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+	
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 	
+        |||                             ||| 	
+        |||    Global DECLARATIONS      |||
+        |||                             |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+		</xs:documentation>
+	</xs:annotation>
+	<!-- 
+		elements needed for LexDania structures
+
+								-->
+	<xs:element name="Arca" type="Arca_type" id="Arca.Kernel.LexDania_2.1"/>
+	<xs:element name="Rubrica" type="Rubrica_type" id="Rubrica-LexDania_2.1"/>
+	<!-- 
+		Element declarations - ordered alphabetically
+			- these names can be "substituted" in subsequent schemas
+			  and thereby create datatypes with domain-related names.
+	-->
+	<xs:element name="Char" type="Char_type" id="Char.LexDania_2.1"/>
+	<xs:element name="Exitus" type="Exitus_type" id="Exitus.LexDania_2.1"/>
+	<xs:element name="Figura" type="Figura_type" id="Figura.LexDania_2.1"/>
+	<xs:element name="Indentatio" type="Indentatio_type" id="Indentatio.LexDania_2.1"/>
+	<xs:element name="Index" type="Index_type" id="Index.LexDania_2.1"/>
+	<xs:element name="Linea" type="Linea_type" id="Linea.LexDania_2.1"/>
+	<xs:element name="Nota" type="Nota_type" id="Nota-LexDania_2.1"/>
+	<xs:element name="NotaPrivata" type="xs:string"/>
+	<xs:element name="Tabula" type="Tabula_type" id="Tabula.LexDania_2.1"/>
+	<!-- 
+		Attributes needed
+					 -->
+	<xs:attribute name="formaChar" id="formaChar.LexDania_2.1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Bold"/>
+				<xs:enumeration value="BoldItalic"/>
+				<xs:enumeration value="BoldItalicUnderline"/>
+				<xs:enumeration value="BoldUnderline"/>
+				<xs:enumeration value="Italic"/>
+				<xs:enumeration value="ItalicUnderline"/>
+				<xs:enumeration value="Subscript"/>
+				<xs:enumeration value="Superscript"/>
+				<xs:enumeration value="Underline"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="formaEx" id="formaEx.LexDania_2.1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Align"/>
+				<xs:enumeration value="Center"/>
+				<xs:enumeration value="Left"/>
+				<xs:enumeration value="Right"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="formaInd" id="formaInd.LexDania_2.1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Nummer"/>
+				<xs:enumeration value="Litra"/>
+				<xs:enumeration value="Pind"/>
+				<xs:enumeration value="Fri"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="formaNo" id="formaNo.LexDania_2.1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="EU"/>
+				<xs:enumeration value="Folketinget"/>
+				<xs:enumeration value="Tabel"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="lingua" type="xs:string" id="lingua.LexDania_2.1"/>
+	<xs:attribute name="signiChar" id="signiChar.LexDania_2.1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="AendringURN"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	<xs:attribute name="formaForma" id="formaForma.LexDania_2.1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="AendretBestemmelse"/>
+				<xs:enumeration value="Aendringspunkt"/>
+				<xs:enumeration value="Af"/>
+				<xs:enumeration value="Af2"/>
+				<xs:enumeration value="Afsnitsnummer"/>
+				<xs:enumeration value="Afsnitsoverskrift"/>
+				<xs:enumeration value="Anmaerkninger"/>
+				<xs:enumeration value="BemTil"/>
+				<xs:enumeration value="BemTilCI"/>
+				<xs:enumeration value="BemTilV"/>
+				<xs:enumeration value="BemTilVBf"/>
+				<xs:enumeration value="BemTilVI"/>
+				<xs:enumeration value="Bilagstekst"/>
+				<xs:enumeration value="CParagrafnummer"/>
+				<xs:enumeration value="CParagraftekst"/>
+				<xs:enumeration value="FolSam"/>
+				<xs:enumeration value="FremsaetterUndertitel"/>
+				<xs:enumeration value="Henvendelse"/>
+				<xs:enumeration value="Hymne"/>
+				<xs:enumeration value="IkkeMedlemmer"/>
+				<xs:enumeration value="IkraftCentreretParagrafNummer"/>
+				<xs:enumeration value="Ikrafttraedelse"/>
+				<xs:enumeration value="IndholdHdr"/>
+				<xs:enumeration value="IndholdHdr2"/>
+				<xs:enumeration value="Indledning"/>
+				<xs:enumeration value="Indledning2"/>
+				<xs:enumeration value="Indstilling"/>
+				<xs:enumeration value="Kapitelnummer"/>
+				<xs:enumeration value="Kapiteloverskrift"/>
+				<xs:enumeration value="KapiteloverskriftBm"/>
+				<xs:enumeration value="Kommentar"/>
+				<xs:enumeration value="Litra"/>
+				<xs:enumeration value="Litra9"/>
+				<xs:enumeration value="lsp6"/>
+				<xs:enumeration value="lsp8L"/>
+				<xs:enumeration value="Lsp8LL"/>
+				<xs:enumeration value="Medlemmer"/>
+				<xs:enumeration value="Normal9"/>
+				<xs:enumeration value="NormalVenstre"/>
+				<xs:enumeration value="NormalLuft"/>
+				<xs:enumeration value="NormalInd"/>
+				<xs:enumeration value="NormalInd9"/>
+				<xs:enumeration value="Nummer"/>
+				<xs:enumeration value="Nummer9"/>
+				<xs:enumeration value="OverskriftSp"/>
+				<xs:enumeration value="Paragraftekst"/>
+				<xs:enumeration value="ParaOverskrift"/>
+				<xs:enumeration value="ParaOverskriftBm"/>
+				<xs:enumeration value="Pind"/>
+				<xs:enumeration value="Pind9"/>
+				<xs:enumeration value="PreTitel0"/>
+				<xs:enumeration value="PreTitel1"/>
+				<xs:enumeration value="PreTitel2"/>
+				<xs:enumeration value="Resume"/>
+				<xs:enumeration value="ResumeTekst"/>
+				<xs:enumeration value="SIGN0"/>
+				<xs:enumeration value="SkrFrem"/>
+				<xs:enumeration value="Slutnotetekst"/>
+				<xs:enumeration value="Stk"/>
+				<xs:enumeration value="Subtitle"/>
+				<xs:enumeration value="TabelFod"/>
+				<xs:enumeration value="TabelHoved"/>
+				<xs:enumeration value="TabelOverskrift"/>
+				<xs:enumeration value="TabelTekst"/>
+				<xs:enumeration value="Tabeltekst9"/>
+				<xs:enumeration value="TabelTekstHøjre"/>
+				<xs:enumeration value="Tekst"/>
+				<xs:enumeration value="Standard"/>
+				<xs:enumeration value="Tekst0"/>
+				<xs:enumeration value="Tekst1"/>
+				<xs:enumeration value="Tekst1Sp"/>
+				<xs:enumeration value="Tekst2"/>
+				<xs:enumeration value="Tekst9"/>
+				<xs:enumeration value="Tekstoverskrift"/>
+				<xs:enumeration value="TekstoverskriftB"/>
+				<xs:enumeration value="TekstoverskriftBm"/>
+				<xs:enumeration value="TekstoverskriftVenstre"/>
+				<xs:enumeration value="TekstoverskriftVenstreBm"/>
+				<xs:enumeration value="TekstoverskriftVenstreN"/>
+				<xs:enumeration value="TekstResume"/>
+				<xs:enumeration value="TekstV"/>
+				<xs:enumeration value="Titel"/>
+				<xs:enumeration value="Title"/>
+				<xs:enumeration value="Undertitel"/>
+				<xs:enumeration value="Skjult"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+</xs:schema>

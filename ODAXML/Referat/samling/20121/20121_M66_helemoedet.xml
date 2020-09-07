@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Dokument edixistatus=""><MetaMeeting><ParliamentarySession>20121</ParliamentarySession><ParliamentaryGroup>Folketinget</ParliamentaryGroup><MeetingNumber>66</MeetingNumber><DateOfSitting>2013-03-01T10:00:00</DateOfSitting><Location>Folketingssalen</Location><EdixiDocLocation>W:\20121\M066\</EdixiDocLocation><AudioFileFolder>X:\DAudio\FT2012\066\SALEN\</AudioFileFolder></MetaMeeting><TitelGruppe><Titel><Linea><Char>66. møde</Char></Linea></Titel><UnderTitel><Linea><Char>Fredag den 1. marts 2013 kl. 10.00</Char></Linea></UnderTitel></TitelGruppe><DagsordenPlan><Rubrica>
+  <Linea>
+    <Char>Dagsorden</Char>
+  </Linea>
+</Rubrica>
+<PunktTekst>
+  <Exitus>
+    <Linea>
+      <Char>1) Forespørgsel nr. F 23:</Char>
+    </Linea>
+  </Exitus>
+  <Exitus>
+    <Linea>
+      <Char>Forespørgsel til ministeren for sundhed og forebyggelse om allergi.</Char>
+    </Linea>
+  </Exitus>
+  <Exitus>
+    <Linea>
+      <Char>Af Liselott Blixt (DF) m.fl.</Char>
+    </Linea>
+  </Exitus>
+  <Exitus>
+    <Linea>
+      <Char>(Anmeldelse 22.01.2013. Fremme 24.01.2013).</Char>
+    </Linea>
+  </Exitus>
+</PunktTekst></DagsordenPlan><DagsordenPunkt><MetaFTAgendaItem><ItemNo>0</ItemNo><FTCase /><FTCaseNumber /><FTCaseType>FM</FTCaseType><FTCaseStage /><ShortTitle>Punkt 0</ShortTitle></MetaFTAgendaItem><PunktTekst><Exitus><Linea><Char /></Linea></Exitus></PunktTekst><Aktivitet><Rubrica><Linea><Char>Meddelelser fra formanden</Char></Linea></Rubrica><Tale><Taler><MetaSpeakerMP><OratorFirstName>Mogens</OratorFirstName><OratorLastName>Lykketoft</OratorLastName><GroupNameShort>S</GroupNameShort><OratorRole>formand</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char>Formanden</Char><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2013-07-18T10:12:17</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2013-03-01T10:00:10</StartDateTime><EndDateTime>2013-03-01T10:01:00</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Mødet er åbnet.</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>I dag er der følgende anmeldelser:</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Erhvervs- og vækstministeren (Annette Vilhelmsen):</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Lovforslag nr.</Char></Linea><Linea><Char>L 175 (Forslag til lov om forvaltere af alternative investeringsfonde m.v.),</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Lovforslag nr.</Char></Linea><Linea><Char>L 176 (Forslag til lov om investeringsforeninger m.v.) og</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Lovforslag nr.</Char></Linea><Linea><Char>L 177 (Forslag til lov om ændring af lov om finansiel virksomhed og forskellige andre love som følge af forslag til lov om investeringsforeninger m.v.</Char></Linea><Linea><Char>(Konsekvensrettelser i lyset af lov om investeringsforeninger m.v.)).</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Titler på de anmeldte sager vil også fremgå af www.folketingstidende.dk (jf.</Char></Linea><Linea><Char>ovenfor).</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Ministeren for ligestilling og kirke (Manu Sareen) har meddelt mig, at han ønsker i henhold til forretningsordenens § 19, stk.</Char></Linea><Linea><Char>4, at give Folketinget en skriftlig</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Perspektiv- og Handlingsplan 2013.</Char></Linea></Exitus><Exitus><Linea><Char>(Redegørelse nr.</Char></Linea><Linea><Char>8).</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Eksemplarer vil blive omdelt, og redegørelsen vil også fremgå af www.folketingstidende.dk.</Char></Linea></Exitus><Exitus><Linea><Char>Redegørelsen vil komme til forhandling torsdag den 4.</Char></Linea><Linea><Char>april 2013.</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Da ministeren for sundhed og forebyggelse er blevet syg, udgår punkt 1 på dagsordenen.</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet></DagsordenPunkt><DagsordenPunkt><MetaFTAgendaItem><ItemNo>1</ItemNo><FTCase /><FTCaseNumber>23</FTCaseNumber><FTCaseType>F</FTCaseType><FTCaseStage>BEH1</FTCaseStage><ShortTitle>Forhandling af F 23: Om allergi.</ShortTitle></MetaFTAgendaItem><PunktTekst><PreTekst>
+  <Exitus>
+    <Linea>
+      <Char>Det eneste punkt på dagsordenen er:</Char>
+    </Linea>
+  </Exitus>
+</PreTekst>
+<Exitus>
+  <Linea>
+    <Char>1) Forespørgsel nr. F 23:</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>Forespørgsel til ministeren for sundhed og forebyggelse:</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>Hvad kan ministeren oplyse om regeringens planer for at sikre allergi en højere prioritet i sundhedsvæsenet med henblik på at nedbringe antallet af fraværsdage?</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>Af Liselott Blixt (DF), Karina Adsbøl (DF), Jens Henrik Thulesen Dahl (DF) og Mette Hjermind Dencker (DF).</Char>
+  </Linea>
+</Exitus>
+<Exitus>
+  <Linea>
+    <Char>(Anmeldelse 22.01.2013. Fremme 24.01.2013).</Char>
+  </Linea>
+</Exitus></PunktTekst><Aktivitet><Tale><Taler><MetaSpeakerMP><OratorFirstName /><OratorLastName /><GroupNameShort /><OratorRole /></MetaSpeakerMP><TalerTitel><Linea><Char /><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2013-07-18T10:12:17</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2013-03-01T10:01:00</StartDateTime><EndDateTime>2013-03-01T10:01:10</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>(Punktet er udgået af dagsordenen).</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet></DagsordenPunkt><DagsordenPunkt><MetaFTAgendaItem><ItemNo>0</ItemNo><FTCase /><FTCaseNumber /><FTCaseType>FM</FTCaseType><FTCaseStage /><ShortTitle>Punkt 0</ShortTitle></MetaFTAgendaItem><PunktTekst><Exitus><Linea><Char /></Linea></Exitus></PunktTekst><Aktivitet><Rubrica><Linea><Char>Meddelelser fra formanden</Char></Linea></Rubrica><Tale><Taler><MetaSpeakerMP><OratorFirstName>Mogens</OratorFirstName><OratorLastName>Lykketoft</OratorLastName><GroupNameShort>S</GroupNameShort><OratorRole>formand</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char>Formanden</Char><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2013-07-18T10:12:17</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2013-03-01T10:01:10</StartDateTime><EndDateTime>2013-03-01T10:01:39</EndDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Der er herefter ikke mere at foretage i dette møde.</Char></Linea></Exitus></TekstGruppe><TekstGruppe><Exitus><Linea><Char>Folketingets næste møde afholdes tirsdag den 12.</Char></Linea><Linea><Char>marts 2013, kl.</Char></Linea><Linea><Char>13.00.</Char></Linea></Exitus><Exitus><Linea><Char>Jeg henviser til den dagsorden, der fremgår af Folketingets hjemmeside, og jeg skal i øvrigt henvise til ugeplanen, der ligeledes fremgår af Folketingets hjemmeside.</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet><Aktivitet><Tale><Taler><MetaSpeakerMP><OratorFirstName>MødeSlut</OratorFirstName><OratorLastName>MødeSlut</OratorLastName><GroupNameShort>MødeSlut</GroupNameShort><OratorRole>MødeSlut</OratorRole></MetaSpeakerMP><TalerTitel><Linea><Char /><Char /></Linea></TalerTitel></Taler><TaleSegment><MetaSpeechSegment><LastModified>2013-07-18T10:12:17</LastModified><EdixiStatus>Typeset</EdixiStatus><StartDateTime>2013-03-01T10:01:39</StartDateTime></MetaSpeechSegment><TekstGruppe><Exitus><Linea><Char>Mødet er hævet.</Char></Linea><Linea><Char>(Kl.</Char></Linea><Linea><Char>10:01).</Char></Linea></Exitus></TekstGruppe></TaleSegment></Tale></Aktivitet></DagsordenPunkt></Dokument>

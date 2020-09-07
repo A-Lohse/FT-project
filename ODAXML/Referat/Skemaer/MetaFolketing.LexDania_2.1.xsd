@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
+	<xsd:include schemaLocation="LexDania_2.1.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| MetaFolketing - Baseret på Lexdania                                         |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Metadata elements er opdelt i to grupper:                                   |||
+	|||            1. Metadata containers                                           |||
+	|||            2. Metadata elementer                                            |||
+	||| Elementer i begge grupper listes i alfabetisk rækkefølge                    |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		</xsd:documentation>
+	</xsd:annotation>
+	<!--
+		1. Metadata containers
+						-->
+	<xsd:element name="MetaCaseNotice" type="MetaCaseNotice_type" id="MetaCaseNotice_2.1-MetaFolketing"/>
+	<xsd:complexType name="MetaCaseNotice_type" id="MetaCaseNotice_type_2.1-MetaFolketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:attribute ref="tingdokID"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MetaFTAgendaItem" type="MetaFTAgendaItem_type" id="MetaFTAgendaItem_2.1-MetaFolketing"/>
+	<xsd:complexType name="MetaFTAgendaItem_type" id="MetaFTAgendaItem_type_2.1-MetaFolketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="ItemNo" minOccurs="0"/>
+					<xsd:group ref="FTCase_group" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="ShortTitle" minOccurs="0"/>
+					<xsd:element ref="JointReadingID" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute ref="tingdokID"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MetaFTAgendaSubItem" type="MetaFTAgendaSubItem_type" id="MetaFTAgendaSubItem_2.1-MetaFolketing"/>
+	<xsd:complexType name="MetaFTAgendaSubItem_type" id="MetaFTAgendaSubItem_type_2.1-MetaFolketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="SubItemNo" minOccurs="0"/>
+					<xsd:group ref="FTCase_group" minOccurs="0"/>
+					<xsd:element ref="ShortTitle" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute ref="tingdokID"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MetaMeeting" type="MetaMeeting_type" id="MetaMeeting_2.1-MetaFolketing"/>
+	<xsd:complexType name="MetaMeeting_type" id="MetaMeeting_type_2.1-MetaFolketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="ParliamentarySession" minOccurs="0"/>
+					<xsd:element ref="ParliamentaryGroup" minOccurs="0"/>
+					<xsd:element ref="MeetingNumber" minOccurs="0"/>
+					<xsd:element ref="DateOfSitting" minOccurs="0"/>
+					<xsd:element ref="Location" minOccurs="0"/>
+					<xsd:element ref="EdixiDocLocation" minOccurs="0"/>
+					<xsd:element ref="AudioFileFolder" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute ref="tingdokID"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MetaSpeakerMP" type="MetaSpeakerMP_type" id="MetaSpeakerMP_2.1-MetaFolketing"/>
+	<xsd:complexType name="MetaSpeakerMP_type" id="MetaSpeakerMP_type_2.1-MetaFolketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="OratorFirstName" minOccurs="0"/>
+					<xsd:element ref="OratorLastName" minOccurs="0"/>
+					<xsd:element ref="GroupNameShort" minOccurs="0"/>
+					<xsd:element ref="OratorRole" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute ref="tingdokID"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MetaSpeechSegment" type="MetaSpeechSegment_type" id="MetaSpeechSegment_2.1-MetaFolketing"/>
+	<xsd:complexType name="MetaSpeechSegment_type" id="MetaSpeechSegment_type_2.1-MetaFolketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="LastModified" minOccurs="0"/>
+					<xsd:element ref="EdixiStatus" minOccurs="0"/>
+					<xsd:group ref="StartEndDateTime_group" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--
+		2. Metadata elementer
+						-->
+	<xsd:element name="AudioFileFolder" type="xsd:string"/>
+	<xsd:element name="DateOfSitting" type="xsd:dateTime"/>
+	<!-- Dato og tid for møde i Folketinget (ISO 8601) -->
+	<xsd:element name="EdixiDocLocation" type="xsd:string"/>
+	<xsd:element name="EdixiStatus" type="xsd:string"/>
+	<xsd:element name="EndDateTime" type="xsd:dateTime"/>
+	<!-- Slut Tid                          	-->
+	<xsd:element name="FTCase">
+		<!-- Folketingets sag			-->
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="id"/>
+					<xsd:attribute ref="tingdokID"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FTCaseNumber">
+		<!-- Folketingets sagsnummer (f.eks. "23", så det sammen med CaseType kunne blive L 23) -->
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="REFid"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FTCaseStage">
+		<!-- Folketingets faseangivelse ifm. behandling af forslag (f.eks. "BEH1") -->
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="REFid"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FTCaseType">
+		<!-- Folketingets sagstype (f.eks. "L" for lovforslag, så det sammen med CaseNumber kunne blive f.eks. L 23) -->
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="REFid"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GroupNameShort" type="xsd:string"/>
+	<!-- Partiforkortelse                 	-->
+	<xsd:element name="ItemNo" type="xsd:string"/>
+	<!-- Dagsordenspunktnummer 		-->
+	<xsd:element name="JointReadingID" type="xsd:string"/>
+	<!-- Sambehandlingsidentifikation	-->
+	<xsd:element name="LastModified" type="xsd:dateTime"/>
+	<!-- Tid for seneste opdatering        	-->
+	<xsd:element name="Location" type="xsd:string"/>
+	<!-- Sted (f.eks. Folketingssalen)	-->
+	<xsd:element name="MeetingNumber" type="xsd:integer"/>
+	<!-- Mødenummer                        	-->
+	<xsd:element name="OratorFirstName" type="xsd:string"/>
+	<!-- Talers fornavn			-->
+	<xsd:element name="OratorLastName" type="xsd:string"/>
+	<!-- Talers efternavn			-->
+	<xsd:element name="OratorRole" type="xsd:string"/>
+	<!-- Talers rolle			-->
+	<xsd:element name="ParliamentaryGroup">
+		<!-- Parlamentarisk gruppe (f.eks. Folketinget) -->
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute ref="tingdokID"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ParliamentarySession">
+		<!-- Folketingssamling                 	-->
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:integer">
+					<xsd:attribute ref="tingdokID"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ShortTitle" type="xsd:string"/>
+	<!-- Kort titel				-->
+	<xsd:element name="StartDateTime" type="xsd:dateTime"/>
+	<!-- Start tid                         	-->
+	<xsd:element name="SubItemNo" type="xsd:string"/>
+	<!-- Dagsordensunderpunktnummer 	-->
+	<xsd:annotation>
+		<xsd:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Folketing - ElementGroups            |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:group name="FTCase_group" id="FTCase_group_2.1-MetaFolketing">
+		<xsd:sequence>
+			<xsd:element ref="FTCase" minOccurs="0"/>
+			<!-- Folketingets sag       		-->
+			<xsd:element ref="FTCaseNumber" minOccurs="0"/>
+			<!-- Folketingets sagsnummer		-->
+			<xsd:element ref="FTCaseType" minOccurs="0"/>
+			<!-- Folketingets sagstype		-->
+			<xsd:element ref="FTCaseStage" minOccurs="0"/>
+			<!-- Folketingets faseangivelse ifm. forslag	-->
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="StartEndDateTime_group" id="StartEndDateTime_group_2.1-MetaFolketing">
+		<xsd:sequence>
+			<xsd:element ref="StartDateTime"/>
+			<!-- Start tid				-->
+			<xsd:element ref="EndDateTime" minOccurs="0"/>
+			<!-- Slut Tid				-->
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:annotation>
+		<xsd:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Folketing - Attributes                |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:attribute name="tingdokID" type="xsd:string" id="tingdokID_2.1-MetaFolketing"/>
+	<!-- Identifikation i Folketingets registreringssystem TingDok -->
+</xsd:schema>

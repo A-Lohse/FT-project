@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1">
+	<xsd:include schemaLocation="LexDania_2.1.xsd"/>
+	<xsd:include schemaLocation="MetaFolketing.LexDania_2.1.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Folketing - Baseret på Lexdania                                             |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Elements er opdelt i to grupper:                                            |||
+	|||            1. Skriftlige referat af Folketingets forhandlinger (Afskrift)   |||
+	|||            2. Generelle elementer                                           |||
+	||| Elementer i begge grupper listes i alfabetisk rækkefølge                    |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<!--
+		1. Skriftlige referat af Folketingets forhandlinger
+									-->
+	<!-- "Aktivitet" -->
+	<xsd:element name="Aktivitet" type="Aktivitet_type" id="Aktivitet_2.1-Folketing"/>
+	<xsd:complexType name="Aktivitet_type" id="Aktivitet_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:choice>
+					<xsd:element ref="Tale" maxOccurs="unbounded"/>
+					<xsd:element ref="DagsordenUnderpunkt" maxOccurs="unbounded"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "DagsordenPlan" -->
+	<xsd:element name="DagsordenPlan" type="DagsordenPlan_type" id="DagsordenPlan_2.1-Folketing"/>
+	<xsd:complexType name="DagsordenPlan_type" id="DagsordenPlan_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="PunktTekst" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "DagsordenPunkt" -->
+	<xsd:element name="DagsordenPunkt" type="DagsordenPunkt_type" id="DagsordenPunkt_2.1-Folketing"/>
+	<xsd:complexType name="DagsordenPunkt_type" id="DagsordenPunkt_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="MetaFTAgendaItem"/>
+					<xsd:element ref="PunktTekst" minOccurs="0"/>
+					<xsd:element ref="Aktivitet" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "DagsordenUnderpunkt (f.eks. "S1235")" -->
+	<xsd:element name="DagsordenUnderpunkt" type="DagsordenUnderpunkt_type" id="DagsordenUnderpunkt_2.1-Folketing"/>
+	<xsd:complexType name="DagsordenUnderpunkt_type" id="DagsordenUnderpunkt_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="MetaFTAgendaSubItem"/>
+					<xsd:element ref="PunktTekst" minOccurs="0"/>
+					<xsd:element ref="Tale" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "PreTekst" -->
+	<xsd:element name="PreTekst" type="PreTekst_type" id="PreTekst_2.1-Folketing"/>
+	<xsd:complexType name="PreTekst_type" id="PreTekst_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="Exitus" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "PunktTekst" -->
+	<xsd:element name="PunktTekst" type="PunktTekst_type" id="PunktTekst_2.1-Folketing"/>
+	<xsd:complexType name="PunktTekst_type" id="PunktTekst_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="PreTekst" minOccurs="0"/>
+					<xsd:element ref="Exitus" maxOccurs="unbounded"/>
+					<xsd:element ref="SkriftligBegrundelse" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "SagAnmeldelse" -->
+	<xsd:element name="SagAnmeldelse" type="SagAnmeldelse_type" id="SagAnmeldelse_2.1-Folketing"/>
+	<xsd:complexType name="SagAnmeldelse_type" id="SagAnmeldelse_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="MetaCaseNotice"/>
+					<xsd:element ref="Exitus" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "SkriftligBegrundelse" -->
+	<xsd:element name="SkriftligBegrundelse" type="SkriftligBegrundelse_type" id="SkriftligBegrundelse_2.1-Folketing"/>
+	<xsd:complexType name="SkriftligBegrundelse_type" id="SkriftligBegrundelse_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="Exitus" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "Tale" -->
+	<xsd:element name="Tale" type="Tale_type" id="Tale_2.1-Folketing"/>
+	<xsd:complexType name="Tale_type" id="Tale_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="Taler"/>
+					<xsd:element ref="TaleType" minOccurs="0"/>
+					<xsd:element ref="TaleSegment" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--- "Taler" -->
+	<xsd:element name="Taler" type="Taler_type" id="Taler_2.1-Folketing"/>
+	<xsd:complexType name="Taler_type" id="Taler_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="MetaSpeakerMP"/>
+					<xsd:element ref="TalerTitel" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "TalerTitel" -->
+	<xsd:element name="TalerTitel" type="Rubrica_type" id="TalerTitel_2.1-Folketing"/>
+	<!-- "TaleSegment" -->
+	<xsd:element name="TaleSegment" type="TaleSegment_type" id="TaleSegment_2.1-Folketing"/>
+	<xsd:complexType name="TaleSegment_type" id="TaleSegment_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="MetaSpeechSegment"/>
+					<xsd:choice>
+						<xsd:element ref="TekstGruppe" maxOccurs="unbounded"/>
+						<xsd:choice maxOccurs="unbounded">
+							<xsd:element ref="Exitus"/>
+							<xsd:element ref="SagAnmeldelse"/>
+						</xsd:choice>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "TaleType - (f.eks. "Ordfører")" -->
+	<xsd:element name="TaleType" type="Exitus_type" id="TaleType_2.1-Folketing"/>
+	<!-- "Titel" -->
+	<xsd:element name="Titel" type="Rubrica_type" id="Titel_2.1-Folketing"/>
+	<!-- "TitelGruppe" -->
+	<xsd:element name="TitelGruppe" type="TitelGruppe_type" id="TitelGruppe_2.1-Folketing"/>
+	<xsd:complexType name="TitelGruppe_type" id="TitelGruppe_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="Titel"/>
+					<xsd:element ref="UnderTitel" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "UnderTitel" -->
+	<xsd:element name="UnderTitel" type="Rubrica_type" id="UnderTitel_2.1-Folketing"/>
+
+	<!--
+		2. Generelle elementer
+								-->
+	<!-- "TekstGruppe"-->
+	<xsd:element name="TekstGruppe" type="TekstGruppe_type" id="TekstGruppe_2.0-Folketing"/>
+	<xsd:complexType name="TekstGruppe_type" id="TekstGruppe_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Arca_type">
+				<xsd:sequence>
+					<xsd:element ref="Exitus" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="TekstGruppe" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "Image" -->
+	<xsd:element name="Image" type="Image_type" substitutionGroup="Figura" id="Image_2.0-Folketing"/>
+	<xsd:complexType name="Image_type" id="Image_type_2.0-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Figura_type">
+				<xsd:attribute ref="alt"/>
+				<xsd:attribute ref="border"/>
+				<xsd:attribute ref="height"/>
+				<xsd:attribute ref="name" use="required"/>
+				<xsd:attribute ref="src" use="required"/>
+				<xsd:attribute ref="width"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "Table" -->
+	<xsd:element name="Table" type="Table_type" substitutionGroup="Tabula" id="Table_2.1-Folketing"/>
+	<xsd:complexType name="Table_type" id="Table_type_2.1-Folketing">
+		<xsd:complexContent>
+			<xsd:extension base="Tabula_type">
+				<xsd:sequence>
+					<xsd:element ref="Tr" maxOccurs="unbounded"/>
+				</xsd:sequence>
+				<xsd:attributeGroup ref="tableAtt_group"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- "Td" -->
+	<xsd:element name="Td" type="Td_type" id="Td_2.1-Folketing"/>
+	<xsd:complexType name="Td_type" mixed="true" id="Td_type_2.1-Folketing">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="Exitus"/>
+			<xsd:element ref="Tabula"/>
+		</xsd:choice>
+		<xsd:attributeGroup ref="tdAtt_group"/>
+	</xsd:complexType>
+	<!-- "Th" -->
+	<xsd:element name="Th" type="Th_type" id="Th_2.1-Folketing"/>
+	<xsd:complexType name="Th_type" mixed="true" id="Th_type_2.1-Folketing">
+		<xsd:sequence>
+			<xsd:element ref="Exitus" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="thAtt_group"/>
+	</xsd:complexType>
+	<!-- "Tr" -->
+	<xsd:element name="Tr" type="Tr_type" id="Tr_2.1-Folketing"/>
+	<xsd:complexType name="Tr_type" id="Tr_type_2.1-Folketing">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element ref="Th"/>
+			<xsd:element ref="Td"/>
+		</xsd:choice>
+		<xsd:attributeGroup ref="trAtt_group"/>
+	</xsd:complexType>
+	
+	<xsd:annotation>
+		<xsd:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Folketing - Attributes                |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:attribute name="abbr" type="xsd:string" id="abbr_2.1-Folketing"/>
+	<xsd:attribute name="align" id="align_2.1-Folketing">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="left"/>
+				<xsd:enumeration value="center"/>
+				<xsd:enumeration value="right"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:attribute name="alt" type="xsd:string" id="alt_2.1-Folketing"/>
+	<xsd:attribute name="axis" type="xsd:string" id="axis_2.1-Folketing"/>
+	<xsd:attribute name="bgcolor" type="xsd:string" id="bgcolor_2.1-Folketing"/>
+	<xsd:attribute name="border" type="xsd:string" id="border_2.1-Folketing"/>
+	<xsd:attribute name="cellspacing" type="xsd:string" id="cellspacing_2.1-Folketing"/>
+	<xsd:attribute name="cellpadding" type="xsd:string" id="cellpadding_2.1-Folketing"/>
+	<xsd:attribute name="class" type="xsd:string" id="class_2.1-Folketing"/>
+	<xsd:attribute name="colspan" type="xsd:string" id="colspan_2.1-Folketing"/>
+	<xsd:attribute name="height" type="xsd:string" id="height_2.1-Folketing"/>
+	<xsd:attribute name="name" type="xsd:string" id="name_2.1-Folketing"/>
+	<xsd:attribute name="rowspan" type="xsd:string" id="rowspan_2.1-Folketing"/>
+	<xsd:attribute name="src" type="xsd:string" id="src_2.1-Folketing"/>
+	<xsd:attribute name="scope" id="scope_2.1-Folketing">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="row"/>
+				<xsd:enumeration value="col"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:attribute name="style" type="xsd:string" id="style_2.1-Folketing"/>
+	<xsd:attribute name="summary" type="xsd:string" id="summary_2.1-Folketing"/>
+	<xsd:attribute name="urn" type="xsd:string" id="urn_2.1-Folketing"/>
+	<xsd:attribute name="valign" id="valign_2.1-Folketing">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="top"/>
+				<xsd:enumeration value="middle"/>
+				<xsd:enumeration value="bottom"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:attribute name="width" type="xsd:string" id="width_2.1-Folketing"/>
+
+	<xsd:annotation>
+		<xsd:documentation>
+	
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	||| Folketing - AttributesGroups          |||
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:attributeGroup name="tableAtt_group" id="tableAtt_group_2.1-Folketing">
+		<xsd:attribute ref="align"/>
+		<xsd:attribute ref="bgcolor"/>
+		<xsd:attribute ref="border"/>
+		<xsd:attribute ref="cellspacing"/>
+		<xsd:attribute ref="cellpadding"/>
+		<xsd:attribute ref="class"/>
+		<xsd:attribute ref="height"/>
+		<xsd:attribute ref="style"/>
+		<xsd:attribute ref="summary"/>
+		<xsd:attribute ref="width"/>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="tdAtt_group" id="tdAtt_group_2.1-Folketing">
+		<xsd:attribute ref="abbr"/>
+		<xsd:attribute ref="align"/>
+		<xsd:attribute ref="axis"/>
+		<xsd:attribute ref="bgcolor"/>
+		<xsd:attribute ref="colspan" default="1"/>
+		<xsd:attribute ref="height"/>
+		<xsd:attribute ref="rowspan" default="1"/>
+		<xsd:attribute ref="scope"/>
+		<xsd:attribute ref="style"/>
+		<xsd:attribute ref="valign"/>
+		<xsd:attribute ref="width"/>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="thAtt_group" id="thAtt_group_2.1-Folketing">
+		<xsd:attribute ref="abbr"/>
+		<xsd:attribute ref="align"/>
+		<xsd:attribute ref="axis"/>
+		<xsd:attribute ref="bgcolor"/>
+		<xsd:attribute ref="colspan" default="1"/>
+		<xsd:attribute ref="rowspan" default="1"/>
+		<xsd:attribute ref="scope"/>
+		<xsd:attribute ref="style"/>
+		<xsd:attribute ref="valign"/>
+	</xsd:attributeGroup>
+	<xsd:attributeGroup name="trAtt_group" id="trAtt_group_2.1-Folketing">
+		<xsd:attribute ref="align"/>
+		<xsd:attribute ref="bgcolor"/>
+		<xsd:attribute ref="style"/>
+		<xsd:attribute ref="valign"/>
+	</xsd:attributeGroup>
+</xsd:schema>
