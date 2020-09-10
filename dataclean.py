@@ -116,4 +116,3 @@ for path in documents:
     i = i +1
 
 final_df.to_csv("FT_speechdata.csv",encoding = "UTF-8", index = False)
-test = pd.read_csv("FT_speechdata.csv")
