@@ -25,3 +25,15 @@ plt.ylim(0, 50000)
 plt.ylabel("Count")
 plt.xlabel("Minutes of speech")
 plt.show()
+
+
+#make a historgram of all speeches under 6 min 
+plt.hist(clean_df['words_per_min'],bins = 300)
+#plt.xlim(0,12)
+#plt.ylim(0, 50000)
+plt.ylabel("Count")
+plt.xlabel("Words per minute")
+plt.show()
+
+
+

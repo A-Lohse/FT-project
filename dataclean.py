@@ -18,6 +18,7 @@ import pickle
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 ########################################################read in data
@@ -113,16 +114,45 @@ for i in range(len(speaker_df)):
         else: 
             speaker_df['party'][i] = list(ministere['party_1'][ministere['full_name']==name])[0]
 
-#############  correct names 
 
 ## list in excel ark  - correct all the names
 
 
 ##################### gender
+#i assign gender manually an then import the gender data, and assign it to the dataframe (each obs)
+for i in politikere.index:
+    #print(i)
+    name = politikere['full_name'][i]
+    gender = politikere['gender'][i]
+    #print(name,gender)
+    speaker_df.loc[speaker_df['full_name']==name,'gender'] = gender
 
+#print("NAs after clean", speaker_df.isna().any())
 
+#############  correct names 
+## some of the names are doublicates 
+old_names = ["Flemming Møller",
+             "Ane Halsboe-Jørgensen",
+             "Kaare Dybvad",
+             "Marlene B. Lorentzen",
+             "Peter Hummelgaard",
+             "Peter Juel Jensen",
+             "Peter Kofod",            
+             "Simon Emil Ammitzbøll"]
 
+new_names = ["Flemming Møller Mortensen",
+             "Ane Halsboe-Larsen",
+             "Kaare Dybvad Bek",
+             "Marlene Borst Hansen",
+             "Peter Hummelgaard Thomsen",
+             "Peter Juel-Jensen",
+             "Peter Kofod Poulsen",
+             "Simon Emil Ammitzbøll-Bille"]
 
+for i, name in enumerate(old_names):
+    speaker_df.loc[speaker_df['full_name']==name,'full_name'] = new_names[i]
+    
+    
 ###############################################Add timestamps and minutes etc.
 import datetime as dt
 speaker_df =  speaker_df.reset_index(drop=True) 
@@ -147,8 +177,46 @@ speaker_df['second'] = speaker_df.apply(lambda row: row.second.total_seconds(), 
 speaker_df['minutes'] = speaker_df['second'] / 60
 
 
+##########################################make words per minute variable and a word count variable 
 
-############################################### check for name duplicates in data (where for example middle name is missing)
+#count - removing trailing whitespace with strip, and then counting the number of splits on " "
+speaker_df['words'] = speaker_df.apply(lambda row: len(row['tale'].strip().split(" ")), axis =1 )
+
+#make a func to count words per min because some speaces are 0 min / and 0 sec there fore we need a try statement
+def word_pm(word,minutes = 0, alpha = False):
+    if alpha:
+        try:
+            x = len(word) / 5
+        except:
+            x = 0
+    else:
+        try:
+            x = word/ minutes 
+        except: 
+            x = 0
+    return x
+speaker_df['words_per_min']= np.nan
+speaker_df['words_per_min_alphanumeric'] = np.nan
+#assign the values
+for i in range(len(speaker_df)):
+    if speaker_df['minutes'][i] == 0:
+         speaker_df['words_per_min'][i] = 0
+         speaker_df['words_per_min_alphanumeric'] = 0
+    else:
+        speaker_df['words_per_min'][i] = word_pm(speaker_df['words'][i],speaker_df['minutes'][i])
+        speaker_df['words_per_min_alphanumeric'][i] = word_pm(speaker_df['tale'][i], alpha = True)
+
+#there are some very extreme values that i now sift out- some of them at least is due to human error in data set - 
+# i have checked manually 
+# world record seems to be 637 wpm - maybe cut it there
+# soruce https://virtualspeech.com/blog/average-speaking-rate-words-per-minute
+ind = speaker_df[speaker_df['words_per_min'] > 627].index
+
+speaker_df['words_per_min'][ind] = np.nan
+speaker_df['words_per_min_alphanumeric'][ind] = np.nan
+
+############################################### clean word per min for bad data (more than 1000 word per minute? maybe more)
+
 
 #############################################save dataset
 file_name = "clean_df.pkl"
