@@ -206,6 +206,8 @@ for i in range(len(speaker_df)):
         speaker_df['words_per_min'][i] = word_pm(speaker_df['words'][i],speaker_df['minutes'][i])
         speaker_df['words_per_min_alphanumeric'][i] = word_pm(speaker_df['tale'][i], alpha = True)
 
+############################################### clean word per min for bad data (more than 1000 word per minute? maybe more)
+
 #there are some very extreme values that i now sift out- some of them at least is due to human error in data set - 
 # i have checked manually 
 # world record seems to be 637 wpm - maybe cut it there
@@ -215,7 +217,21 @@ ind = speaker_df[speaker_df['words_per_min'] > 627].index
 speaker_df['words_per_min'][ind] = np.nan
 speaker_df['words_per_min_alphanumeric'][ind] = np.nan
 
-############################################### clean word per min for bad data (more than 1000 word per minute? maybe more)
+
+
+############################################### group by politician and calculate mean wpm and minutes talked
+
+grouped_df_minutes = speaker_df.groupby(['full_name'])['minutes'].describe()
+grouped_df_wpm = speaker_df.groupby(['full_name'])['words_per_min'].describe()
+
+
+speaker_df['mean_minutes'] = np.nan
+speaker_df['mean_wpm'] = np.nan
+
+for i in range(len(speaker_df)):
+   speaker_df['mean_minutes'][i] = grouped_df_minutes[grouped_df_minutes.index==speaker_df['full_name'][i]]['mean']
+for i in range(len(speaker_df)):
+    speaker_df['mean_wpm'][i] = grouped_df_wpm[grouped_df_minutes.index==speaker_df['full_name'][i]]['mean']
 
 
 #############################################save dataset
