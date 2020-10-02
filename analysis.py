@@ -21,6 +21,7 @@ pkl_file = open('clean_df.pkl', 'rb')
 clean_df = pickle.load(pkl_file)
 pkl_file.close()
 
+#################################### no grouping - each oberservaition on its own #######################################
 
 #make some plots
 
@@ -74,51 +75,21 @@ print(women.describe())
 print(men.describe())
 
 
-### calculate mean of individual parlamentary member
-
-#grouped_df_minutes = clean_df.groupby(['full_name'])['minutes'].describe()
-#grouped_df_wpm = clean_df.groupby(['full_name'])['words_per_min'].describe()
-
-
-#clean_df['mean_minutes'] = np.nan
-#clean_df['mean_wpm'] = np.nan
-
-#for i in range(len(clean_df)):
-#    clean_df['mean_minutes'][i] = grouped_df_minutes[grouped_df_minutes.index==clean_df['full_name'][i]]['mean']
-#for i in range(len(clean_df)):
-#    clean_df['mean_wpm'][i] = grouped_df_minutes[grouped_df_minutes.index==clean_df['full_name'][i]]['mean']
-
-
-mean_minutes = clean_df['mean_minutes'].unique()
-mean_wpm = clean_df['mean_wpm'].unique()
-
-print("the mean minutes of the MF grouped means is", np.mean(mean_minutes))
-print("the mean wpm of the MF grouped means is", np.mean(mean_wpm))
-
-### make some histograms 
-#minutes
-plt.hist(mean_minutes,bins= 50)
-plt.xlabel("Means of politicans minutes")
-plt.ylabel("count")
-plt.title("Distribution of the means of politicians minutes spoken")
-plt.show()
-
-#wmp
-plt.hist(mean_wpm,bins= 50)
-plt.xlabel("Means of politicans wpm")
-plt.ylabel("count")
-plt.title("Distribution of the means of politicians words per minute")
-plt.show()
-
-
 #scatter - with gender
+
+
+###############do some regressions 
+
+
+
+#################################### grouoped by politicians full_name  #######################################
+
+
 
 
 #lets try to make a lin reg line as well
 grouped_df = clean_df.groupby(['full_name'])[['mean_minutes','mean_wpm','gender']].describe()
 #acces this object with at tuple eg: grouped_df.loc[:,('mean_minutes','mean')]
-
-
 
 #acces this object with at tuple eg: grouped_df.loc[:,('mean_minutes','mean')]
 x1 = grouped_df.loc[grouped_df[('gender','mean')]==1,('mean_minutes','mean')]
@@ -126,6 +97,33 @@ y1 = grouped_df.loc[grouped_df[('gender','mean')]==1,('mean_wpm','mean')]
 
 x2 = grouped_df.loc[grouped_df[('gender','mean')]==0,('mean_minutes','mean')]
 y2 = grouped_df.loc[grouped_df[('gender','mean')]==0,('mean_wpm','mean')]
+
+
+
+
+
+#histogram of distribution of means og minutes between male and female 
+plt.hist(x2, label = "Men",alpha = 0.5,bins = 30)
+plt.hist(x1, label = "Women", alpha = 0.7,bins = 30)
+plt.title("Distribution of mean minutes of speach")
+plt.ylabel("Count")
+plt.xlabel("Mean minutes of speech")
+#plt.ylim(0, 20000)
+#plt.xlim(0,12)
+plt.legend()
+
+#histogram of distribution of means of Wpm between male and female 
+plt.hist(y2, label = "Men",alpha = 0.5,bins = 40)
+plt.hist(y1, label = "Women", alpha = 0.7,bins = 40)
+plt.title("Distribution of mean minutes of speach")
+plt.ylabel("Count")
+plt.xlabel("Mean wpm")
+#plt.ylim(0, 20000)
+#plt.xlim(0,12)
+plt.legend()
+
+
+
 
 #scatter plot 
 plt.scatter(x1,y1, label = "Women", c = "green", alpha = 0.9)
@@ -184,10 +182,11 @@ print(result.summary())
 
 #lets plot this logit reg
 #plt.scatter(x,model.predict_proba(x)[:,1])
-plt.scatter(y,x,c = grouped_df.loc[:,('gender','mean')], cmap = "RdYlGn", alpha = 0.5)
+plt.scatter(y,x,c = grouped_df.loc[:,('gender','mean')], alpha = 0.5)
 plt.ylabel("Gender, 1 = Female, 0 = Male")
 plt.xlabel("Average minutes speaking")
 
 plt.show()
 
 
+#################################### grouoped by individual session  #######################################
