@@ -16,11 +16,14 @@ import pandas as pd
 
 
 #read in data
-os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
-pkl_file = open('clean_df.pkl', 'rb')
+os.chdir("C:\\Users\\augus\\OneDrive - Københavns Universitet\\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+#os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+pkl_file = open('full_df.pkl', 'rb')
 clean_df = pickle.load(pkl_file)
 pkl_file.close()
 
+
+#clean_df = pd.read_csv("df_sentiment.csv",encoding = "cp1252")
 #################################### no grouping - each oberservaition on its own #######################################
 
 #make some plots
@@ -213,4 +216,17 @@ plt.show()
 
 ########################## Sentiment analysis 
 
+#### i make personal means of the mean and the total - only run once
+#grouped_df_sentiment = clean_df.groupby(['full_name'])['sentiment_mean'].describe()
+#grouped_df_sentiment_total = clean_df.groupby(['full_name'])['sentiment_total'].describe()
+
+#clean_df['mean_personal_sentiment'] = np.nan
+#clean_df['mean_total_personal_sentiment'] = np.nan
+
+#for i in range(len(clean_df)):
+   #clean_df['mean_personal_sentiment'][i] = grouped_df_sentiment[grouped_df_sentiment.index==clean_df['full_name'][i]]['mean']
+#for i in range(len(clean_df)):
+   #clean_df['mean_total_personal_sentiment'][i] = grouped_df_sentiment_total[grouped_df_sentiment_total.index==clean_df['full_name'][i]]['mean']
+
+#clean_df.to_csv("clean.csv")
 

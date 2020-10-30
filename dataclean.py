@@ -6,23 +6,25 @@ Created on Mon Sep 14 12:13:16 2020
 """
 ######################################################### TO-Do list
 #Items to fix
-#  - name and party variables should be renamed. 
-# missing values on party affiliation are due to the person being a minister - assign party (around 44k obs)
-# add gender 
-    # i do this by making a full list of full name (unique) and manually add gender by their name. 
-    # this way i can also add party if they are ministers 
-    
+
     
 ######################################################### importing packages
 import pickle
 import pandas as pd
 import os
-import matplotlib.pyplot as plt
 import numpy as np
-
+import sys
 
 ########################################################read in data
-os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+os.chdir("C:\\Users\\augus\\OneDrive - Københavns Universitet\\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+
+#os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+
+############################### Run R script first
+R = False
+if not R:
+    print("The R variable is set to False. If this is the first time you run the code, you should run the r script called 'sentida.R' first. This will generate the sentiments analysis. Afterwards set the R variable to True")
+    sys.exit()    
 pkl_file = open('full_df.pkl', 'rb')
 full_df = pickle.load(pkl_file)
 pkl_file.close()
@@ -220,7 +222,6 @@ speaker_df['words_per_min_alphanumeric'][ind] = np.nan
 
 
 ############################################### group by politician and calculate mean wpm and minutes talked
-
 grouped_df_minutes = speaker_df.groupby(['full_name'])['minutes'].describe()
 grouped_df_wpm = speaker_df.groupby(['full_name'])['words_per_min'].describe()
 
@@ -233,10 +234,35 @@ for i in range(len(speaker_df)):
 for i in range(len(speaker_df)):
     speaker_df['mean_wpm'][i] = grouped_df_wpm[grouped_df_minutes.index==speaker_df['full_name'][i]]['mean']
 
-speaker_df.to_csv("full_df.csv")
+
+sent_df = pd.read_csv("df_sentiment.csv",encoding = "cp1252")
+
+grouped_df_sentiment = sent_df.groupby(['full_name'])['sentiment_mean'].describe()
+grouped_df_sentiment_total = sent_df.groupby(['full_name'])['sentiment_total'].describe()
+
+sent_df['mean_personal_sentiment'] = np.nan
+sent_df['mean_total_personal_sentiment'] = np.nan
+
+for i in range(len(sent_df)):
+   sent_df['mean_personal_sentiment'][i] = grouped_df_sentiment[grouped_df_sentiment.index==sent_df['full_name'][i]]['mean']
+for i in range(len(sent_df)):
+   sent_df['mean_total_personal_sentiment'][i] = grouped_df_sentiment_total[grouped_df_sentiment_total.index==sent_df['full_name'][i]]['mean']
+
+speaker_df['mean_personal_sentiment'] = sent_df['mean_personal_sentiment']
+speaker_df['mean_total_personal_sentiment']= sent_df['mean_total_personal_sentiment']
+speaker_df['sentiment_mean'] = sent_df['sentiment_mean']
+speaker_df['sentiment_total'] = sent_df['sentiment_total']
+#make new datasets
+makenew = False
+if not makenew:
+    print("The make new argument is set to false. This means that the code does not overwrite the data in directory. Do you want to generate new data? then set the argument to True" )
+if makenew:
+    
+    speaker_df.to_csv("final_df.csv")
 #############################################save dataset
-file_name = "clean_df.pkl"
-output = open(file_name, 'wb')
-pickle.dump(speaker_df, output)
-output.close()
+    file_name = "final_df.pkl"
+    output = open(file_name, 'wb')
+    pickle.dump(speaker_df, output)
+    output.close()
+
 print("All done")

@@ -8,3 +8,7 @@ clean_df.pkl
 full_df.csv
 
 df_sentiment.csv
+
+final_df.csv
+
+final_df.pkl
