@@ -2,8 +2,11 @@
 """
 Created on Mon Sep  7 11:22:36 2020
 
-@author: augus
+@author: august
 """
+###################################################to do 
+# - Make regressions on sentiment analysis 
+
 
 import pickle
 import matplotlib.pyplot as plt
@@ -18,7 +21,7 @@ import pandas as pd
 #read in data
 os.chdir("C:\\Users\\augus\\OneDrive - Københavns Universitet\\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
 #os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
-pkl_file = open('full_df.pkl', 'rb')
+pkl_file = open('final_df.pkl', 'rb')
 clean_df = pickle.load(pkl_file)
 pkl_file.close()
 
@@ -216,17 +219,29 @@ plt.show()
 
 ########################## Sentiment analysis 
 
-#### i make personal means of the mean and the total - only run once
-#grouped_df_sentiment = clean_df.groupby(['full_name'])['sentiment_mean'].describe()
-#grouped_df_sentiment_total = clean_df.groupby(['full_name'])['sentiment_total'].describe()
 
-#clean_df['mean_personal_sentiment'] = np.nan
-#clean_df['mean_total_personal_sentiment'] = np.nan
+women = clean_df.loc[clean_df['gender'] == 1, ['sentiment_mean']]
+men = clean_df.loc[clean_df['gender'] == 0, ['sentiment_mean']]
 
-#for i in range(len(clean_df)):
-   #clean_df['mean_personal_sentiment'][i] = grouped_df_sentiment[grouped_df_sentiment.index==clean_df['full_name'][i]]['mean']
-#for i in range(len(clean_df)):
-   #clean_df['mean_total_personal_sentiment'][i] = grouped_df_sentiment_total[grouped_df_sentiment_total.index==clean_df['full_name'][i]]['mean']
 
-#clean_df.to_csv("clean.csv")
+plt.hist(men['sentiment_mean'], label = "Men",alpha = 0.5,bins = 300)
+plt.hist(women['sentiment_mean'], label = "Women", alpha = 0.7,bins = 300)
+#plt.xlim(0, 400)
+plt.ylabel("Count")
+plt.xlabel("Sentiment score")
+plt.legend()
+plt.show()
 
+print(women.describe())
+print(men.describe())
+
+#target 
+plt.hist(clean_df.loc[clean_df['target'] == 0, ['sentiment_mean']]['sentiment_mean'], label = "Target Men",alpha = 0.5,bins = 300)
+plt.hist(clean_df.loc[clean_df['target'] == 1, ['sentiment_mean']]['sentiment_mean'], label = "Target woman",alpha = 0.5,bins = 300)
+plt.ylabel("Count")
+plt.xlabel("Sentiment score")
+plt.legend()
+plt.show()
+
+clean_df.loc[clean_df['target'] == 0, ['sentiment_mean']]['sentiment_mean'].mean()
+clean_df.loc[clean_df['target'] == 1, ['sentiment_mean']]['sentiment_mean'].mean()

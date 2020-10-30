@@ -6,7 +6,7 @@ Created on Mon Sep 14 12:13:16 2020
 """
 ######################################################### TO-Do list
 #Items to fix
-
+#- find a way to remove "hr. formand" and "fru formand" from the target data
     
 ######################################################### importing packages
 import pickle
@@ -21,7 +21,7 @@ os.chdir("C:\\Users\\augus\\OneDrive - Københavns Universitet\\Documents\\Uni\\
 #os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
 
 ############################### Run R script first
-R = False
+R = True
 if not R:
     print("The R variable is set to False. If this is the first time you run the code, you should run the r script called 'sentida.R' first. This will generate the sentiments analysis. Afterwards set the R variable to True")
     sys.exit()    
@@ -252,8 +252,22 @@ speaker_df['mean_personal_sentiment'] = sent_df['mean_personal_sentiment']
 speaker_df['mean_total_personal_sentiment']= sent_df['mean_total_personal_sentiment']
 speaker_df['sentiment_mean'] = sent_df['sentiment_mean']
 speaker_df['sentiment_total'] = sent_df['sentiment_total']
+
+
+
+#add targets of tale 
+# add indicator for who the text is towards 
+speaker_df['target'] = np.nan
+for i in range(len(speaker_df)):
+    if "fru " in speaker_df['tale'][i].lower() and "hr." not in speaker_df['tale'][i].lower():
+        speaker_df['target'][i] = 1
+    elif "hr." in speaker_df['tale'][i].lower() and "fru " not in speaker_df['tale'][i].lower():
+        speaker_df['target'][i] = 0
+    else:
+        speaker_df['target'][i] = 2
+
 #make new datasets
-makenew = False
+makenew = True
 if not makenew:
     print("The make new argument is set to false. This means that the code does not overwrite the data in directory. Do you want to generate new data? then set the argument to True" )
 if makenew:
