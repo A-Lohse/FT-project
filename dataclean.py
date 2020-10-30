@@ -233,9 +233,10 @@ for i in range(len(speaker_df)):
 for i in range(len(speaker_df)):
     speaker_df['mean_wpm'][i] = grouped_df_wpm[grouped_df_minutes.index==speaker_df['full_name'][i]]['mean']
 
-
+speaker_df.to_csv("full_df.csv")
 #############################################save dataset
 file_name = "clean_df.pkl"
 output = open(file_name, 'wb')
 pickle.dump(speaker_df, output)
 output.close()
+print("All done")

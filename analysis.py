@@ -80,6 +80,31 @@ print(men.describe())
 
 ###############do some regressions 
 
+x = np.array(clean_df.loc[:,'gender']).reshape(-1,1)
+y = np.array(clean_df.loc[:,'minutes']).reshape(-1,1)
+
+
+gender = x
+minutes = y
+
+
+#with statsmodel 
+model = sm.OLS(minutes, gender).fit()
+print(model.summary())
+
+
+
+#try to print nice results
+logit_model = sm.GLM(gender,sm.add_constant(minutes),family=sm.families.Binomial())
+#logit_model= sm.Logit(endog = x, exog = y)
+result=logit_model.fit()
+print(result.summary())
+
+plt.scatter(y,x,c = clean_df.loc[:,'gender'], alpha = 0.5)
+plt.ylabel("Gender, 1 = Female, 0 = Male")
+plt.xlabel("Minutes speaking")
+
+plt.show()
 
 
 #################################### grouoped by politicians full_name  #######################################
@@ -111,6 +136,8 @@ plt.xlabel("Mean minutes of speech")
 #plt.ylim(0, 20000)
 #plt.xlim(0,12)
 plt.legend()
+plt.show()
+
 
 #histogram of distribution of means of Wpm between male and female 
 plt.hist(y2, label = "Men",alpha = 0.5,bins = 40)
@@ -122,6 +149,7 @@ plt.xlabel("Mean wpm")
 #plt.xlim(0,12)
 plt.legend()
 
+plt.show()
 
 
 
@@ -151,31 +179,21 @@ print("this is a difference of", round((x2.describe()['mean'] -x1.describe()['me
 #first reg parameter is gender and y is time to speak
 x = np.array(grouped_df.loc[:,('gender','mean')]).reshape(-1,1)
 y = np.array(grouped_df.loc[:,('mean_minutes','mean')]).reshape(-1,1)
-model = LinearRegression().fit(x, y)
-
-#
-r_sq = model.score(x, y)
-print('coefficient of determination:', r_sq)
-
-print('intercept:', model.intercept_)
-print('slope:', model.coef_)
-
-#there does not seem to be a strong correlation with lin reg - try logit 
-#switch around y and x for logit reg on dummy var (gender)
 
 
-model = LogisticRegression().fit(y, x)
-r_sq = model.score(y, x)
+gender = x
+minutes = y
 
-#print the results
-print('coefficient of determination:', r_sq)
-print('slope:', model.coef_)
 
-#a small bit better than random (0.5)
+#with statsmodel 
+model = sm.OLS(minutes, gender).fit()
+print(model.summary())
+
 
 
 #try to print nice results
-logit_model= sm.Logit(endog = x, exog = y)
+logit_model = sm.GLM(gender,sm.add_constant(minutes),family=sm.families.Binomial())
+#try to print nice results
 result=logit_model.fit()
 print(result.summary())
 #seems to be significant. 
@@ -189,4 +207,10 @@ plt.xlabel("Average minutes speaking")
 plt.show()
 
 
-#################################### grouoped by individual session  #######################################
+#################################### grouped by individual session  #######################################
+
+
+
+########################## Sentiment analysis 
+
+

@@ -4,3 +4,7 @@ FT_speechdata.csv
 full_df.pkl
 
 clean_df.pkl
+
+full_df.csv
+
+df_sentiment.csv
