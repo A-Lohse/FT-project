@@ -5,8 +5,13 @@ Created on Mon Sep  7 11:22:36 2020
 @author: august
 """
 ###################################################to do 
-# - Make regressions on sentiment analysis 
-
+# - Make regressions on sentiment analysis _/
+# - remove start and end debate 
+# - make final analysis 
+# - which are.
+# - - Introduce an in government or not 
+# - - Introduce a bloc variable as a control
+# - - naybe make a variable for the the chairs block and gender
 
 import pickle
 import matplotlib.pyplot as plt
@@ -15,6 +20,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
 import statsmodels.api as sm
+import statsmodels.formula.api as smf
 import pandas as pd
 
 
@@ -95,16 +101,16 @@ minutes = y
 
 
 #with statsmodel 
-model = sm.OLS(minutes, gender).fit()
+model = sm.OLS(minutes, sm.add_constant(gender)).fit()
 print(model.summary())
 
 
 
 #try to print nice results
-logit_model = sm.GLM(gender,sm.add_constant(minutes),family=sm.families.Binomial())
+#logit_model = sm.GLM(gender,sm.add_constant(minutes),family=sm.families.Binomial())
 #logit_model= sm.Logit(endog = x, exog = y)
-result=logit_model.fit()
-print(result.summary())
+#result=logit_model.fit()
+#print(result.summary())
 
 plt.scatter(y,x,c = clean_df.loc[:,'gender'], alpha = 0.5)
 plt.ylabel("Gender, 1 = Female, 0 = Male")
@@ -192,16 +198,16 @@ minutes = y
 
 
 #with statsmodel 
-model = sm.OLS(minutes, gender).fit()
+model = sm.OLS(minutes, sm.add_constant(gender)).fit()
 print(model.summary())
 
 
 
 #try to print nice results
-logit_model = sm.GLM(gender,sm.add_constant(minutes),family=sm.families.Binomial())
+#logit_model = sm.GLM(minutes,sm.add_constant(gender),family=sm.families.Binomial())
 #try to print nice results
-result=logit_model.fit()
-print(result.summary())
+#result=logit_model.fit()
+#print(result.summary())
 #seems to be significant. 
 
 #lets plot this logit reg
@@ -243,5 +249,17 @@ plt.xlabel("Sentiment score")
 plt.legend()
 plt.show()
 
+#target men
 clean_df.loc[clean_df['target'] == 0, ['sentiment_mean']]['sentiment_mean'].mean()
+#target women
 clean_df.loc[clean_df['target'] == 1, ['sentiment_mean']]['sentiment_mean'].mean()
+
+data = clean_df[clean_df['target'] != 2]
+
+model1 = smf.ols(formula = 'sentiment_mean ~ C(target)',data = data).fit()
+print(model1.summary())
+ 
+model2 = smf.ols(formula = 'sentiment_mean ~ C(target) + C(gender)',data = data).fit()
+print(model2.summary())
+
+

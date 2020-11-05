@@ -6,8 +6,7 @@ Created on Mon Sep 14 12:13:16 2020
 """
 ######################################################### TO-Do list
 #Items to fix
-#- find a way to remove "hr. formand" and "fru formand" from the target data
-    
+
 ######################################################### importing packages
 import pickle
 import pandas as pd
@@ -259,6 +258,11 @@ speaker_df['sentiment_total'] = sent_df['sentiment_total']
 # add indicator for who the text is towards 
 speaker_df['target'] = np.nan
 for i in range(len(speaker_df)):
+    text = speaker_df['tale'][i].lower().replace("hr. formand","")
+    text = text.replace("hr formand","")
+    text = text.replace("fru formand","")
+    text = text.replace("fru. formand","")
+
     if "fru " in speaker_df['tale'][i].lower() and "hr." not in speaker_df['tale'][i].lower():
         speaker_df['target'][i] = 1
     elif "hr." in speaker_df['tale'][i].lower() and "fru " not in speaker_df['tale'][i].lower():
