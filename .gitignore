@@ -12,3 +12,21 @@ df_sentiment.csv
 final_df.csv
 
 final_df.pkl
+
+df_sentiment_short_comment.csv
+
+.RDataTmp
+
+sentiment_total_verification.csv
+
+sentiment_total_verification_coded.csv
+
+sentiment_verification.csv
+
+sentiment_verification_coded.csv
+
+sentiment_verification_with_code.csv
+
+short_comment_df.csv
+
+tables_tex.csv

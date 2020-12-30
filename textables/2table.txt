@@ -1,0 +1,36 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    &      second      & \textbf{  R-squared:         } &      0.026   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &      0.026   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &      1793.   \\
+\textbf{Date:}             & Sat, 26 Dec 2020 & \textbf{  Prob (F-statistic):} &      0.00    \\
+\textbf{Time:}             &     12:44:01     & \textbf{  Log-Likelihood:    } & -8.9294e+05  \\
+\textbf{No. Observations:} &      204293      & \textbf{  AIC:               } &  1.786e+06   \\
+\textbf{Df Residuals:}     &      204289      & \textbf{  BIC:               } &  1.786e+06   \\
+\textbf{Df Model:}         &           3      & \textbf{                     } &              \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept} &    1958.9999  &       26.187     &    74.808  &         0.000        &     1907.674    &     2010.326     \\
+\textbf{gender}    &      -0.3605  &        0.089     &    -4.064  &         0.000        &       -0.534    &       -0.187     \\
+\textbf{mean\_wpm} &       0.0118  &        0.002     &     4.886  &         0.000        &        0.007    &        0.017     \\
+\textbf{year}      &      -0.9504  &        0.013     &   -73.141  &         0.000        &       -0.976    &       -0.925     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 5423.625 & \textbf{  Durbin-Watson:     } &    1.539  \\
+\textbf{Prob(Omnibus):} &   0.000  & \textbf{  Jarque-Bera (JB):  } & 2678.653  \\
+\textbf{Skew:}          &   0.005  & \textbf{  Prob(JB):          } &     0.00  \\
+\textbf{Kurtosis:}      &   2.439  & \textbf{  Cond. No.          } & 1.25e+06  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified. \newline
+ [2] The condition number is large, 1.25e+06. This might indicate that there are \newline
+ strong multicollinearity or other numerical problems.

@@ -1,0 +1,32 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    &  mean\_minutes   & \textbf{  R-squared:         } &     0.000   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &    -0.000   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &    0.9449   \\
+\textbf{Date:}             & Sat, 26 Dec 2020 & \textbf{  Prob (F-statistic):} &    0.331    \\
+\textbf{Time:}             &     12:44:03     & \textbf{  Log-Likelihood:    } & 1.6434e+05  \\
+\textbf{No. Observations:} &      204293      & \textbf{  AIC:               } & -3.287e+05  \\
+\textbf{Df Residuals:}     &      204291      & \textbf{  BIC:               } & -3.287e+05  \\
+\textbf{Df Model:}         &           1      & \textbf{                     } &             \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept} &       0.7704  &        0.000     &  2581.113  &         0.000        &        0.770    &        0.771     \\
+\textbf{gender}    &      -0.0005  &        0.001     &    -0.972  &         0.331        &       -0.001    &        0.000     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 263.096 & \textbf{  Durbin-Watson:     } &    1.631  \\
+\textbf{Prob(Omnibus):} &   0.000 & \textbf{  Jarque-Bera (JB):  } &  274.235  \\
+\textbf{Skew:}          &  -0.070 & \textbf{  Prob(JB):          } & 2.82e-60  \\
+\textbf{Kurtosis:}      &   3.112 & \textbf{  Cond. No.          } &     2.42  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

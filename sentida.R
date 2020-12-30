@@ -11,7 +11,7 @@ Sentida::sentida("Abort er mord", output = "mean")
 sentida("Abort er mord", output = "total")
 sentida("Abort er mord", output = "mean")
 
-df <- read.csv("full_df.csv", encoding = "UTF-8")
+df <- read.csv("short_comment_df.csv", encoding = "UTF-8")
 
 
 df$sentiment_mean = Sentida::sentida(df$tale,output = "mean")
@@ -23,4 +23,4 @@ for( i in 1:nrow(df)){
   df$sentiment_mean[i] <- Sentida::sentida(df$tale[i],output = "mean")
   df$sentiment_total[i] <- Sentida::sentida(df$tale[i],output = "total")
 }
-write.csv(df,"df_sentiment.csv")
+write.csv(df,"df_sentiment_short_comment.csv")

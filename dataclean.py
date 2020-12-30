@@ -4,8 +4,7 @@ Created on Mon Sep 14 12:13:16 2020
 
 @author: august
 """
-######################################################### TO-Do list
-#Items to fix
+
 
 ######################################################### importing packages
 import pickle
@@ -15,10 +14,12 @@ import numpy as np
 import sys
 
 ########################################################read in data
-os.chdir("C:\\Users\\augus\\OneDrive - Københavns Universitet\\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+#os.chdir("C:\\Users\\augus\\OneDrive - Københavns Universitet\\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
 
-#os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
+os.chdir("C:\\Users\\August\\OneDrive - Københavns Universitet\Documents\\Uni\\Kandidat i Statskundskab\\4. semester kandidat\\Projekt\\FT-project")
 
+#do you want all the data or only the short comments? set sc to false for the full data
+sc = True
 ############################### Run R script first
 R = True
 if not R:
@@ -178,6 +179,12 @@ speaker_df['second'] = speaker_df.apply(lambda row: row.second.total_seconds(), 
 speaker_df['minutes'] = speaker_df['second'] / 60
 
 
+############### remove data based on "kort bemærkning
+
+#remove 1st and last percentile 
+speaker_df = speaker_df[speaker_df['second'] <= 90]
+speaker_df.reset_index(inplace=True,drop = True)
+
 ##########################################make words per minute variable and a word count variable 
 
 #count - removing trailing whitespace with strip, and then counting the number of splits on " "
@@ -234,7 +241,13 @@ for i in range(len(speaker_df)):
     speaker_df['mean_wpm'][i] = grouped_df_wpm[grouped_df_minutes.index==speaker_df['full_name'][i]]['mean']
 
 
-sent_df = pd.read_csv("df_sentiment.csv",encoding = "cp1252")
+if sc == True: 
+    speaker_df.to_csv("short_comment_df.csv")
+
+    sent_df = pd.read_csv("df_sentiment_short_comment.csv",encoding = "cp1252")
+else:
+
+    sent_df = pd.read_csv("df_sentiment_.csv",encoding = "cp1252")
 
 grouped_df_sentiment = sent_df.groupby(['full_name'])['sentiment_mean'].describe()
 grouped_df_sentiment_total = sent_df.groupby(['full_name'])['sentiment_total'].describe()

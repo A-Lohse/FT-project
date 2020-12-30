@@ -1,0 +1,37 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    & sentiment\_mean  & \textbf{  R-squared:         } &     0.005   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.005   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     63.58   \\
+\textbf{Date:}             & Sat, 26 Dec 2020 & \textbf{  Prob (F-statistic):} &  1.04e-53   \\
+\textbf{Time:}             &     12:44:05     & \textbf{  Log-Likelihood:    } &   -10461.   \\
+\textbf{No. Observations:} &       50182      & \textbf{  AIC:               } & 2.093e+04   \\
+\textbf{Df Residuals:}     &       50177      & \textbf{  BIC:               } & 2.098e+04   \\
+\textbf{Df Model:}         &           4      & \textbf{                     } &             \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                       & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept}     &     -12.4536  &        0.840     &   -14.827  &         0.000        &      -14.100    &      -10.807     \\
+\textbf{target}        &      -0.0009  &        0.004     &    -0.239  &         0.811        &       -0.008    &        0.007     \\
+\textbf{gender}        &       0.0060  &        0.003     &     1.746  &         0.081        &       -0.001    &        0.013     \\
+\textbf{target:gender} &       0.0204  &        0.006     &     3.212  &         0.001        &        0.008    &        0.033     \\
+\textbf{year}          &       0.0063  &        0.000     &    15.219  &         0.000        &        0.006    &        0.007     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 2430.449 & \textbf{  Durbin-Watson:     } &    1.682  \\
+\textbf{Prob(Omnibus):} &   0.000  & \textbf{  Jarque-Bera (JB):  } & 8420.862  \\
+\textbf{Skew:}          &  -0.120  & \textbf{  Prob(JB):          } &     0.00  \\
+\textbf{Kurtosis:}      &   4.992  & \textbf{  Cond. No.          } & 1.27e+06  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified. \newline
+ [2] The condition number is large, 1.27e+06. This might indicate that there are \newline
+ strong multicollinearity or other numerical problems.

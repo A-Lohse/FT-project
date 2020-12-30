@@ -1,0 +1,35 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    &      words       & \textbf{  R-squared:         } &      0.021   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &      0.021   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &      2140.   \\
+\textbf{Date:}             & Sat, 26 Dec 2020 & \textbf{  Prob (F-statistic):} &      0.00    \\
+\textbf{Time:}             &     12:44:04     & \textbf{  Log-Likelihood:    } & -1.1309e+06  \\
+\textbf{No. Observations:} &      204293      & \textbf{  AIC:               } &  2.262e+06   \\
+\textbf{Df Residuals:}     &      204290      & \textbf{  BIC:               } &  2.262e+06   \\
+\textbf{Df Model:}         &           2      & \textbf{                     } &              \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept} &    5616.3790  &       83.929     &    66.919  &         0.000        &     5451.881    &     5780.877     \\
+\textbf{gender}    &      -2.2512  &        0.284     &    -7.928  &         0.000        &       -2.808    &       -1.695     \\
+\textbf{year}      &      -2.7192  &        0.042     &   -65.276  &         0.000        &       -2.801    &       -2.638     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 2135.250 & \textbf{  Durbin-Watson:     } &    1.545  \\
+\textbf{Prob(Omnibus):} &   0.000  & \textbf{  Jarque-Bera (JB):  } & 1685.500  \\
+\textbf{Skew:}          &   0.144  & \textbf{  Prob(JB):          } &     0.00  \\
+\textbf{Kurtosis:}      &   2.661  & \textbf{  Cond. No.          } & 1.25e+06  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified. \newline
+ [2] The condition number is large, 1.25e+06. This might indicate that there are \newline
+ strong multicollinearity or other numerical problems.

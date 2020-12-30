@@ -1,0 +1,36 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    &  mean\_minutes   & \textbf{  R-squared:         } &     0.098   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.098   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     7369.   \\
+\textbf{Date:}             & Sat, 26 Dec 2020 & \textbf{  Prob (F-statistic):} &     0.00    \\
+\textbf{Time:}             &     12:44:03     & \textbf{  Log-Likelihood:    } & 1.7484e+05  \\
+\textbf{No. Observations:} &      204293      & \textbf{  AIC:               } & -3.497e+05  \\
+\textbf{Df Residuals:}     &      204289      & \textbf{  BIC:               } & -3.496e+05  \\
+\textbf{Df Model:}         &           3      & \textbf{                     } &             \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept} &      21.5118  &        0.141     &   152.939  &         0.000        &       21.236    &       21.788     \\
+\textbf{gender}    &      -0.0039  &        0.000     &    -8.255  &         0.000        &       -0.005    &       -0.003     \\
+\textbf{mean\_wpm} &       0.0002  &      1.3e-05     &    15.654  &         0.000        &        0.000    &        0.000     \\
+\textbf{year}      &      -0.0103  &     6.98e-05     &  -147.755  &         0.000        &       -0.010    &       -0.010     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 324.470 & \textbf{  Durbin-Watson:     } &    1.806  \\
+\textbf{Prob(Omnibus):} &   0.000 & \textbf{  Jarque-Bera (JB):  } &  374.230  \\
+\textbf{Skew:}          &  -0.045 & \textbf{  Prob(JB):          } & 5.46e-82  \\
+\textbf{Kurtosis:}      &   3.190 & \textbf{  Cond. No.          } & 1.25e+06  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified. \newline
+ [2] The condition number is large, 1.25e+06. This might indicate that there are \newline
+ strong multicollinearity or other numerical problems.
